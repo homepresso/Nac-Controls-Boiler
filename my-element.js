@@ -1,9 +1,23 @@
-import {LitElement, html, css} from 'lit';
-import {styles} from './styles-css';
+import { html, LitElement, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/all/lit-all.min.js';
 
-export class MyElement extends LitElement {
+export default class MyElement extends LitElement {
 
-  static styles = styles;
+  static properties = {
+    name: {type: String},
+    message: {type: String},
+    instruction: {type: String},
+    count: { type: Number },
+
+};
+
+  static styles = css`
+  :host {
+       display: block;
+       border: solid 1px gray;
+       padding: 16px;
+       max-width: 800px;
+     }
+`;
   static getMetaConfig() {
     return {
         controlName: 'my-element',
@@ -23,7 +37,7 @@ export class MyElement extends LitElement {
             instruction: {
                 type: 'string',
                 title: 'text',
-            }
+            },
         },
         standardProperties: {
             fieldLabel: false,
@@ -38,7 +52,6 @@ export class MyElement extends LitElement {
 
 
   static properties = {
-    name: { type: String },
     count: { type: Number },
 
 };
@@ -66,7 +79,7 @@ export class MyElement extends LitElement {
   exampleAlert()
 
   {
-    alert(this.message);
+    alert(this.count);
   }
 
   _onClick() {
